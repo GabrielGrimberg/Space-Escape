@@ -52,9 +52,13 @@ public class EnemeySpawn : MonoBehaviour
 		float rightEdgeOfFormation = transform.position.x + (0.5f * width);
 		float leftEdgeOfFormation = transform.position.x - (0.5f * width);
 
-		if(leftEdgeOfFormation < xMin || rightEdgeOfFormation > xMax)
+		if(leftEdgeOfFormation < xMin)
 		{
-			isMovingRight = !isMovingRight;
+			isMovingRight = true;
+		}
+		else if(rightEdgeOfFormation > xMax)
+		{
+			isMovingRight = false;
 		}
 	}
 }
