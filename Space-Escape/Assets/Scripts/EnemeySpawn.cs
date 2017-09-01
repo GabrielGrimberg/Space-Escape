@@ -23,13 +23,17 @@ public class EnemeySpawn : MonoBehaviour
 		xMax = rightEdge.x;
 		xMin = leftEdge.x;
 
+		SpawnEnemies();
+	}
+
+	void SpawnEnemies()
+	{
 		//Loop over every child object (Enemy).
 		foreach(Transform child in transform)
 		{
 			GameObject enemy = Instantiate(enemyPrefab, child.transform.position, Quaternion.identity) as GameObject;
 			enemy.transform.parent = child;
 		}
-		
 	}
 
 	public void OnDrawGizmos()
@@ -60,5 +64,23 @@ public class EnemeySpawn : MonoBehaviour
 		{
 			isMovingRight = false;
 		}
+
+		if(AllMembersDead() )
+		{
+			Debug.Log("Empty Formation");
+			SpawnEnemies();
+		}
+	}
+
+	bool AllMembersDead()
+	{
+		foreach(Transform childPosGameObject in transform)
+		{
+			if(childPosGameObject.childCount > 0)
+			{
+				return false;
+			}
+		}
+		return true;
 	}
 }
