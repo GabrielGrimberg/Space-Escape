@@ -8,6 +8,7 @@ public class EnemeySpawn : MonoBehaviour
 	public float width = 10f;
 	public float height = 5f;
 	public float speed = 5f;
+	public float spawnDelay = 0.5f;
 
 	private bool isMovingRight = true;
 	private float xMax;
@@ -23,9 +24,10 @@ public class EnemeySpawn : MonoBehaviour
 		xMax = rightEdge.x;
 		xMin = leftEdge.x;
 
-		SpawnEnemies();
+		SpawnUntilFull();
 	}
 
+	//Method to load up enemies.
 	void SpawnEnemies()
 	{
 		//Loop over every child object (Enemy).
@@ -34,6 +36,25 @@ public class EnemeySpawn : MonoBehaviour
 			GameObject enemy = Instantiate(enemyPrefab, child.transform.position, Quaternion.identity) as GameObject;
 			enemy.transform.parent = child;
 		}
+	}
+
+	void SpawnUntilFull()
+	{
+		Transform freePos = NextFreePosition();
+
+		//If there is a position.
+		if(freePos)
+		{
+			GameObject enemy = Instantiate(enemyPrefab, freePos.position, Quaternion.identity) as GameObject;
+			enemy.transform.parent = freePos;
+		}
+
+		//Timer to appear enemies. Only spawn an enemy if there is a free position.
+		if(NextFreePosition() )
+		{
+			Invoke("SpawnUntilFull", spawnDelay);
+		}
+
 	}
 
 	public void OnDrawGizmos()
@@ -68,10 +89,23 @@ public class EnemeySpawn : MonoBehaviour
 		if(AllMembersDead() )
 		{
 			Debug.Log("Empty Formation");
-			SpawnEnemies();
+			SpawnUntilFull();
 		}
 	}
 
+	Transform NextFreePosition()
+	{
+		foreach(Transform childPosGameObject in transform)
+		{
+			if(childPosGameObject.childCount == 0)
+			{
+				return childPosGameObject;
+			}
+		}
+		return null;
+	}
+
+	//Check to see if all enemies are dead.
 	bool AllMembersDead()
 	{
 		foreach(Transform childPosGameObject in transform)
