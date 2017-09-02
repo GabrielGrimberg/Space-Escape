@@ -191,6 +191,7 @@ MonoBehaviour:
   width: 16.5
   height: 6.5
   speed: 3
+  spawnDelay: 0.5
 --- !u!4 &333634092
 Transform:
   m_ObjectHideFlags: 0
