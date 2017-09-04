@@ -360,11 +360,11 @@ Prefab:
     - target: {fileID: 11400000, guid: 1d17c8accddfc43d593706f3365be8ab, type: 2}
       propertyPath: gameClip
       value: 
-      objectReference: {fileID: 8300000, guid: 77a8791a4ca474ac4a91c8da4a3b0e1f, type: 3}
+      objectReference: {fileID: 8300000, guid: cfc816c58116b4f64b2ee544fcb88ef2, type: 3}
     - target: {fileID: 11400000, guid: 1d17c8accddfc43d593706f3365be8ab, type: 2}
       propertyPath: endClip
       value: 
-      objectReference: {fileID: 8300000, guid: cfc816c58116b4f64b2ee544fcb88ef2, type: 3}
+      objectReference: {fileID: 8300000, guid: 77a8791a4ca474ac4a91c8da4a3b0e1f, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1d17c8accddfc43d593706f3365be8ab, type: 2}
   m_IsPrefabParent: 0
@@ -401,7 +401,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -221.65, y: -128}
+  m_AnchoredPosition: {x: -210, y: -128}
   m_SizeDelta: {x: 171, y: 67}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &720264911
