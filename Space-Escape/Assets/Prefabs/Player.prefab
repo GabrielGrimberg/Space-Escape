@@ -167,6 +167,7 @@ MonoBehaviour:
   laserSpeed: 5
   firingRate: 0.2
   health: 250
+  fireSound: {fileID: 8300000, guid: d5ebf93f9f11c4aeaa6d32ebac845229, type: 3}
 --- !u!212 &212634359660666124
 SpriteRenderer:
   m_ObjectHideFlags: 1

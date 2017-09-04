@@ -20,6 +20,9 @@ public class PlayerController : MonoBehaviour
 	float xMin;
 	float xMax;
 
+	//Fire sound
+	public AudioClip fireSound;
+
 	// Use this for initialization
 	void Start () 
 	{
@@ -68,6 +71,7 @@ public class PlayerController : MonoBehaviour
 		Vector3 offset = new Vector3(0, 1, 0);
 		GameObject laserAway = Instantiate(Laser, transform.position + offset, Quaternion.identity) as GameObject;
 		laserAway.GetComponent<Rigidbody2D>().velocity = new Vector3(0, laserSpeed, 0);
+		AudioSource.PlayClipAtPoint(fireSound, transform.position);
 	}
 
 	void OnTriggerEnter2D(Collider2D collider)

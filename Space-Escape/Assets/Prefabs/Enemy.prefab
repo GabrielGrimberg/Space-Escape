@@ -121,6 +121,9 @@ MonoBehaviour:
   health: 150
   enemyLaserSpeed: 10
   shotsPerSeconds: 0.5
+  scoreValue: 150
+  fireSound: {fileID: 8300000, guid: a9348fbca97ce4ac4a93d4820a9c0010, type: 3}
+  deathSound: {fileID: 8300000, guid: acb035640d3d14037b1099a5fc486296, type: 3}
 --- !u!212 &212767188442002660
 SpriteRenderer:
   m_ObjectHideFlags: 1
