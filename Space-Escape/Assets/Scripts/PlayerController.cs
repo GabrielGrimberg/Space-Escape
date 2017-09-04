@@ -87,10 +87,17 @@ public class PlayerController : MonoBehaviour
 
 			if(health <= 0)
 			{
-				Destroy(gameObject);
+				PlayerDeath();
 			}
 			//Debug.Log("Hit by a laser");
 
 		}
+	}
+
+	void PlayerDeath()
+	{
+		LevelManager man = GameObject.Find("LevelManager").GetComponent<LevelManager>();
+		man.LoadLevel("Win Screen");
+		Destroy(gameObject);
 	}
 }
